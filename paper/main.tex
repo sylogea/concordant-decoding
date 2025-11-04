@@ -1,0 +1,112 @@
+\documentclass[11pt]{article}
+
+\usepackage[preprint]{acl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx,inconsolata,latexsym,microtype,times}
+
+\usepackage{amsfonts,amssymb,bm,booktabs,cancel,caption,centernot,dsfont,graphicx,marvosym,mathtools,nicefrac,physics,stackengine,subcaption,textcomp,tikz,xcolor,xparse}
+\usepackage[scr=boondox]{mathalpha}
+
+\usepackage{algorithm,algorithmicx,algpseudocode}
+\algrenewcomment[1]{\textcolor{black!50}{\small\text{\# }\textit{#1}}}
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{notation}{Notation}
+\newtheorem{theorem}{theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{claim}{claim}
+\newtheorem{remark}{Remark}
+
+\usepackage{parskip}
+\makeatletter
+\newlength{\thmextra}
+\setlength{\thmextra}{\parskip}
+\addtolength{\thmextra}{2pt}
+\def\thm@space@setup{\thm@preskip=\thmextra \thm@postskip=0pt}
+\makeatother
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\newcommand{\quotes}[1]{\text{``#1''}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\inner}[1]{\langle #1\rangle}
+\newcommand{\eostoken}{\#}
+\newcommand{\mdoubleplus}{\mathbin{+\mkern-11mu+}}
+
+\title{Concordant Decoding}
+
+\author{
+	Gregory Lim \and Second Author \and Third Author \\
+	Singapore University of Technology and Design \\
+	\texttt{\{gregory\_lim, ...\}@mymail.sutd.edu.sg}
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+	Main contributions and findings (200 words).
+\end{abstract}
+
+\section{Introduction}
+Blah.
+
+\section{Related Work}
+Blah.
+
+\section{Methodology}
+% Introduce the rule
+Let $V$ be a finite vocabulary totally ordered by $\preceq$,
+and $\Pr$ be a next-token kernel of an autoregressive language model.
+Let $\ell$ denote $\log\Pr$,
+and juxtaposition denote concatenation.
+
+We define the decoding rule by
+\begin{equation}
+	\argmax_{y\in V}\left[
+		\ell(y\mid x)
+		+
+		D(p\,\Vert\,q)
+	\right]
+\end{equation}
+where $D$ is KL-divergence,
+and
+\[
+	p
+	=
+	\{
+		\Pr(z\mid xy)
+	\}_{z\in V},
+\]
+and
+\[
+	q
+	=
+	\{
+		\Pr(z\mid x)
+	\}_{z\in V}.
+\]
+
+% Introduce the approximate algorithm
+
+% and its computational complexities
+% Fix a uniform-cost random-access machine model of computation.
+
+\section{Experimentation}
+
+\section{Conclusion}
+
+\bibliography{main}
+
+\appendix
+\section{Appendix Title}
+Appendix content goes here \citep{example2025}.
+
+\end{document}
