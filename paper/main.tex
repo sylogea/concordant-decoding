@@ -64,40 +64,34 @@ Blah.
 \section{Methodology}
 % Introduce the rule
 Let $V$ be a finite vocabulary totally ordered by $\preceq$,
-and $\Pr$ be a next-token kernel of an autoregressive language model.
+and $\Pr$ be a next-token kernel of an autoregressive language model,
+and $\Delta:\mathcal{P}(V)\times\mathcal{P}(V)\to[0,\infty]$ be the Kullback--Leibler (KL) divergence function.
 Let $\ell$ denote $\log\Pr$,
 and juxtaposition denote concatenation.
 
 We define the decoding rule by
 \begin{equation}
+	f(x)
+	\in
 	\argmax_{y\in V}\left[
 		\ell(y\mid x)
 		+
-		D(p\,\Vert\,q)
+		\Delta(\hat{xy}\ \Vert\ \hat{x})
 	\right]
 \end{equation}
-where $D$ is KL-divergence,
-and
+where
+$\hat{p}$ is the probability mass function satisfying
 \[
-	p
+	\hat{p}(v)
 	=
-	\{
-		\Pr(z\mid xy)
-	\}_{z\in V},
+	\Pr(v\mid p)
 \]
-and
-\[
-	q
-	=
-	\{
-		\Pr(z\mid x)
-	\}_{z\in V}.
-\]
+for each $v\in V$.
 
 % Introduce the approximate algorithm
 
 % and its computational complexities
-% Fix a uniform-cost random-access machine model of computation.
+Fix a uniform-cost random-access machine model of computation.
 
 \section{Experimentation}
 
